@@ -1,12 +1,24 @@
-import { StyleSheet } from "react-native";
-import { Camera, useCameraDevice } from "react-native-vision-camera";
+import { Stack, useRouter } from "expo-router";
+import { Button, View } from "react-native";
 
 export default function Index() {
-  const device = useCameraDevice("back");
+  const router = useRouter();
 
-  if (!device) {
-    return null;
-  }
-
-  return <Camera device={device} isActive style={StyleSheet.absoluteFill} />;
+  return (
+    <>
+      <Stack.Screen
+        options={{
+          headerRight: () => (
+            <Button
+              title="Test"
+              onPress={() => {
+                router.navigate("/camera");
+              }}
+            />
+          ),
+        }}
+      />
+      <View />
+    </>
+  );
 }

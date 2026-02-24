@@ -3,13 +3,12 @@ import { Stack } from "expo-router";
 export default function RootLayout() {
   return (
     <Stack>
+      <Stack.Screen name="index" options={{ title: "Camera Test" }} />
       <Stack.Screen
-        name="index"
+        name="camera"
         options={{
-          title: "Camera",
-          headerBlurEffect: "systemChromeMaterialDark",
-          headerTintColor: "white",
-          headerTransparent: true,
+          headerShown: false,
+          presentation: "modal",
         }}
       />
     </Stack>
